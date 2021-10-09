@@ -9,6 +9,14 @@ RUN apt-get update && \
 RUN mkdir /browsers
 WORKDIR /browsers
 
+## Download playwright for linux x86_64
+#RUN wget https://files.pythonhosted.org/packages/dc/bd/3b2163a4829f335f626f434915158ab7735b299d031c16f509bde37b66e2/playwright-1.15.3-py3-none-manylinux1_x86_64.whl
+#
+## Rename it so that it can be installed on arm
+#RUN mv playwright-1.15.3-py3-none-manylinux1_x86_64.whl playwright-1.15.3-py3-none-any.whl
+#
+#RUN pip install playwright-1.15.3-py3-none-any.whl
+
 # Download playwright for linux x86_64
 RUN wget https://files.pythonhosted.org/packages/dc/bd/3b2163a4829f335f626f434915158ab7735b299d031c16f509bde37b66e2/playwright-1.15.3-py3-none-manylinux1_x86_64.whl
 
