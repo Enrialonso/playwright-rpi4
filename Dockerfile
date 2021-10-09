@@ -9,21 +9,13 @@ RUN apt-get update && \
 RUN mkdir /browsers
 WORKDIR /browsers
 
-## Download playwright for linux x86_64
-#RUN wget https://files.pythonhosted.org/packages/dc/bd/3b2163a4829f335f626f434915158ab7735b299d031c16f509bde37b66e2/playwright-1.15.3-py3-none-manylinux1_x86_64.whl
-#
-## Rename it so that it can be installed on arm
-#RUN mv playwright-1.15.3-py3-none-manylinux1_x86_64.whl playwright-1.15.3-py3-none-any.whl
-#
-#RUN pip install playwright-1.15.3-py3-none-any.whl
-
 # Download playwright for linux x86_64
-RUN wget https://files.pythonhosted.org/packages/b7/fd/a755971645836850765149e212ccc6a9756494ea438ac0a9efec4f5f9002/playwright-1.9.2-py3-none-manylinux1_x86_64.whl
+RUN wget https://files.pythonhosted.org/packages/b7/fd/a755971645836850765149e212ccc6a9756494ea438ac0a9efec4f5f9002/playwright-1.10.0-py3-none-manylinux1_x86_64.whl
 
 # Rename it so that it can be installed on arm
-RUN mv playwright-1.9.2-py3-none-manylinux1_x86_64.whl playwright-1.9.2-py3-none-any.whl
+RUN mv playwright-1.10.0-py3-none-manylinux1_x86_64.whl playwright-1.10.0-py3-none-any.whl
 
-RUN pip install playwright-1.9.2-py3-none-any.whl
+RUN pip install playwright-1.10.0-py3-none-any.whl
 
 # replace the node binary provided by playwright with a symlink to the version we just installed.
 RUN rm /usr/local/lib/python3.9/site-packages/playwright/driver/node && \
